@@ -49,6 +49,11 @@ h1{
     margin: 0.25rem;
     cursor: pointer;
 }
+.material-icons{
+   
+    transform: scale(150%, 150%);
+    /* border :2px solid black; */
+}
 .addButton:hover{
     opacity: 0.7;
 }
@@ -97,3 +102,25 @@ h1{
     border: none;
     cursor: pointer;
 }
+
+
+/* When clicked on, add a background color and strike out text */
+ul li.checked {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
+  }
+
+  /* Add a "checked" mark when clicked on */
+ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+  }
