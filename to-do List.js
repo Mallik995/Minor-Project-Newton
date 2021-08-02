@@ -37,26 +37,45 @@ class item{
     } 
     edit(input){
         input.disabled = !input.disabled;
+        // input.focus=autofocus();
+        // input.document.autofocus;        
     }
 
-    remove(item){
-        container.removeChild(item);
+    remove(item){        
+        let con=confirm("Is this task is completed");
+        if(con){
+            container.removeChild(item);            
+        }
     }
     
 }
 
 // new item("Sport");
-
-function check(){
-    if(input.value != ""){
-        new item(input.value);
-        input.value = "";
+let values = [];
+function check(){    
+    val = (input.value).charAt(0).toUpperCase() + input.value.slice(1);
+    if(input.value != "" ){
+        if(values.includes(val)){
+            alert("This task already exist...");
+            return;
+        }
+        new item(val);        
+        values.push(val);
+        // need to check for duplicate entry
+        // duplicatedEntry(input.value);        
+        input.value = "";              
     }
 }
 
+function duplicatedEntry(str){
+
+}
+
 addButton.addEventListener('click', check);
-window.addEventListener('keydown', (e)=> {
+window.addEventListener('keydown', (e)=> {  
     if(e.which ==13){
         check(); 
+        
     }
 })
+
